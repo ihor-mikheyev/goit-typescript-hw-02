@@ -1,15 +1,9 @@
 import React from "react";
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css"
+import { Item } from "../../types";
 
-interface Item {
-  id: string;
-  urls: {
-    small: string;
-    regular: string;
-  };
-  alt_description: string;
-}
+
 
 interface Props {
   items: Item[];  

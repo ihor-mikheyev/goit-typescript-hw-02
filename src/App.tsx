@@ -8,6 +8,8 @@ import LoadMoreButton from './components/LoadMoreButton/LoadMoreButton'
 import ImageGallery from './components/ImageGallery/ImageGallery'
 import ImageModal from './components/ImageModal/ImageModal'
 
+import { Item } from './types'
+
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
@@ -51,7 +53,7 @@ function App() {
   
   // Modal api
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState<string>("");
 
   function openModal(imageUrl:string) {
     setSelectedImage(imageUrl);
@@ -71,7 +73,7 @@ function App() {
       <ImageGallery items={images} onClick={openModal} />
       {error && <ErrorMessage/>}
       { loading && <Loader/>}
-      {loading && page >= totalPages && <b>End of collection!</b>}
+     {totalPages !== null && loading && page >= totalPages && <b>End of collection!</b>}
       {images.length > 0 && !loading && (
         <LoadMoreButton onClick={handleLoadMore} />)}
     <ImageModal
