@@ -4,7 +4,10 @@ import css from "./ImageGallery.module.css"
 
 interface Item {
   id: string;
-  urls: string;
+  urls: {
+    small: string;
+    regular: string;
+  };
   alt_description: string;
 }
 
