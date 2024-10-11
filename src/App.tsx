@@ -11,7 +11,7 @@ import ImageModal from './components/ImageModal/ImageModal'
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-  const [images, setImages] = useState <object>([]);
+  const [images, setImages] = useState < object[]>([]);
 
   const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
@@ -41,7 +41,7 @@ function App() {
     const handleSearch = (newQuery:string) => {
       setQuery(newQuery);
       setError(false);
-    setPage(1);
+      setPage(1);
       setImages([]);
       setTotalPages(totalPages)
     };
