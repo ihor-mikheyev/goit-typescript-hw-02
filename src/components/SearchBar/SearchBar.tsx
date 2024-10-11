@@ -1,18 +1,22 @@
 import { FiSearch } from "react-icons/fi";
 import css from "./SearchBar.module.css";
 import toast, { Toaster } from "react-hot-toast";
+import React from "react";
 
-export default function SearchBar({onSearch}) {
-  function handleSubmit(event) {
+interface Props { 
+  onSearch: (query: string) => void;
+}
+
+const  SearchBar:React.FC<Props> = ({onSearch}) => {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = event.target;
-    if (form.elements.request.value === "") { 
+    const form = event.target as HTMLFormElement;
+    const requestValue = form.elements.namedItem("request") as HTMLInputElement;
+    if (requestValue.value === "") { 
       toast("Your request could not be processed");
       return;
     }
-    onSearch(form.elements.request.value)
-    
-    // console.log(form.elements.request.value);
+    onSearch(requestValue.value);
     form.reset();
   }
 
@@ -37,3 +41,6 @@ export default function SearchBar({onSearch}) {
 </header>
   );
 }
+
+
+export default SearchBar;

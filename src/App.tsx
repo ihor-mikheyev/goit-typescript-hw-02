@@ -9,13 +9,13 @@ import ImageGallery from './components/ImageGallery/ImageGallery'
 import ImageModal from './components/ImageModal/ImageModal'
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [images, setImages] = useState <object>([]);
 
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(null);
+  const [query, setQuery] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number | null>(null);
 
   useEffect(() => {
     if (query === "") { 
@@ -38,7 +38,7 @@ function App() {
     getData()
   }, [page, query])
   
-    const handleSearch = (newQuery) => {
+    const handleSearch = (newQuery:string) => {
       setQuery(newQuery);
       setError(false);
     setPage(1);
@@ -54,7 +54,7 @@ function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
-  function openModal(imageUrl) {
+  function openModal(imageUrl:string) {
     setSelectedImage(imageUrl);
     setIsOpen(true);
   }
