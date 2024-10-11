@@ -28,7 +28,7 @@ function App() {
         setError(false);
         const response = await fetchData(query, page);
         setImages((prevState) => [...prevState, ...response.images])
-        setTotalPages(response.total_pages);
+        setTotalPages(response.totalPages);
       } catch (error) {
         setError(true)
       } finally { 
