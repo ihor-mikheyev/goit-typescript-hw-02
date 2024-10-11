@@ -3,6 +3,7 @@ import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css"
 
 interface Item {
+  id: string;
   urls: {
     small: string;
     regular: string;
@@ -19,9 +20,9 @@ interface Props {
     
   return (
     <ul className={css.ul}>
-      {items.map((item, index) => {
+      {items.map((item) => {
         return (
-          <li key={index} className={css.li}>
+          <li key={item.id} className={css.li}>
             <ImageCard item={item} onClick={()=> onClick(item.urls.regular) } />
           </li>
         );
