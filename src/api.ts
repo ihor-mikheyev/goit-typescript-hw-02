@@ -10,7 +10,7 @@ interface Response {
 
 async function fetchData(query: string, page: number): Promise<Response> {
   const response = await axios.get<{
-    results: ImageResult[];
+    results: Item[];
     total_pages: number;
   }>("/search/photos", {
     params: {
